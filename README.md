@@ -31,6 +31,7 @@ Wireframes
 
 Technologies, Libraries, APIs:
     Web Audio API
+    Tone.js
     jQuery/Vanilla JS event listeners
     CSS Styling
     Webpack (project bundling)

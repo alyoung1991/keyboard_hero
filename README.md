@@ -38,7 +38,7 @@ Technologies, Libraries, APIs:
 
 Implementation Timeline
 
-    Friday Afternoon & Weekend: Submit final proposal, establish project skeloton, encorporate webpack files for bundling, and Complete Keyboard functionality to support key press event listeners.
+    Friday Afternoon & Weekend: Submit final proposal, establish project skeleton, Incorporate webpack files for bundling, and Complete Keyboard functionality to support key press event listeners.
     Monday: Incorporate scrolling music score component(Utilizing a 2d array/grid), and create sample 2d arrays to represent a few songs.
     Tuesday: Establish game scoring logic, metronome functionality, and build game menus/navigation
     Wednesday: Add CSS Styling across entire application

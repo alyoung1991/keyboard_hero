@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const main = document.getElementById("main");
     new SongView(main);
     let keyboard = new Keyboard(main);
-    document.addEventListener("keydown", keyboard.handleKeypress.bind(keyboard));
+    document.addEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
+    document.addEventListener("keyup", keyboard.handleKeyup.bind(keyboard));
 });
 
 

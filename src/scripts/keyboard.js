@@ -39,15 +39,27 @@ class Keyboard {
             key.className = "key";
             key.dataset.note = notes[i];
             key.innerText = notes[i];
-            key.addEventListener("click", (e) => this.playNote(e.target.dataset.note))
+            // key.addEventListener("click", (e) => this.playNote(e.target.dataset.note))
             this.keyboard.appendChild(key);
         }
     }
 
-    handleKeypress(e){
+    handleKeydown(e){
         // prevents playNote from executing when key is being held down.
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
+            // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
+            let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
+            key.classList.toggle("key-down");
             this.playNote(KEY_NOTE_MAP[e.key]);
+        }
+    }
+
+    handleKeyup(e){
+        // prevents playNote from executing when key is being held down.
+        if(KEY_NOTE_MAP[e.key] && !e.repeat){
+            // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
+            let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
+            key.classList.toggle("key-down");
         }
     }
 

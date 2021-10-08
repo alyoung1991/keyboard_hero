@@ -32,6 +32,7 @@
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
+    "tone": "^14.7.77",
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0"
   }

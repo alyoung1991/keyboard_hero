@@ -6,3 +6,5 @@ document.addEventListener("DOMContentLoaded", () => {
     new SongView(main);
     new Keyboard(main);
 });
+
+

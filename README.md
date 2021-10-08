@@ -29,7 +29,7 @@ Wireframes
 <img width="764" alt="Screen Shot 2021-10-08 at 12 57 08 AM" src="https://user-images.githubusercontent.com/26657117/136500784-79a78023-b287-45ad-89a6-fb9b6aa5101b.png">
 
 
-Technologies, Libraries, APIs
+Technologies, Libraries, APIs:
     Web Audio API
     jQuery/Vanilla JS event listeners
     CSS Styling
@@ -43,6 +43,6 @@ Implementation Timeline
     Wednesday: Add CSS Styling across entire application
     Thursday Morning: Add final touches, optimize performance, and resolve any errors that may exist.
 
-Bonus Features (Optional)
+Bonus Features (Optional):
     Practice and Jam session Modes
     Keyboard effects

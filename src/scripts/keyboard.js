@@ -20,7 +20,8 @@ const KEY_NOTE_MAP = {
     "p": "D#5",
     ";": "E5",
     "'": "F5",
-    "]": "F#5"
+    "]": "F#5",
+    "Enter": "G5"
 };
 
 class Keyboard {

@@ -4,15 +4,63 @@ body{
     background-color: rgb(43, 43, 43);
 }
 
-.keyboard {
+#main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.song-view {
+    height: 60vh;
+    background-color: white;
+    border: 1px solid black;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song-highway {
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-delay: 3s;
+}
+
+@keyframes scroll {
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(600px);
+    }
+}
+
+.song-beat{
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
+.song-note{
+    width: 5%;
+    height: 60px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
 .key {
-    height: 300px;
-    width: 44px;
+    height: 36vh;
+    width: 5%;
     border: 1px solid $gray;
     border-radius: 0 0 5px 5px;
     background-color: white;

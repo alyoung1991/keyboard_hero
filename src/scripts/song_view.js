@@ -41,7 +41,7 @@ class SongView {
                     // positions note objects just above canvas view
                     pos:[j*40 + 20, i*40 + 20 - (song.length * 40)],
                     radius: 20,
-                    color: "#00FF00",
+                    color: "#000000",
                     text: song[i][j]
                 });
                 note.draw(this.ctx);
@@ -60,7 +60,7 @@ class SongView {
 
     step(){
         this.moveObjects();
-        // this.checkCollisions();
+        this.checkCollisions();
     }
 
     moveObjects(){
@@ -76,7 +76,14 @@ class SongView {
         });
     }
 
-
+    checkCollisions(){
+        for(let i = 0; i < this.allNotes.length; i++){
+            let currNote = this.allNotes[i];
+            if(currNote.options.pos[1] === 460){
+                // do something
+            }
+        }
+    }
 }
 
 export default SongView;

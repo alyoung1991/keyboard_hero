@@ -4,7 +4,9 @@ class MovingObject {
     }
 
     draw(ctx){
-        ctx.fillStyle = this.options.color;
+        let color = (this.options.text == "E") ? "#00FF00" : "#000000"
+        let text = (this.options.text == "E") ? "E" : "";
+        ctx.fillStyle = color;
         ctx.strokeStyle = "black";
         ctx.font = "16px Georgia";
         ctx.arc(this.options.pos[0], this.options.pos[1], this.options.radius, 0, 2 * Math.PI, false);
@@ -12,7 +14,7 @@ class MovingObject {
         ctx.beginPath();
         ctx.fillStyle = "red";
         ctx.textAlign = 'center';
-        ctx.fillText(this.options.text, this.options.pos[0], this.options.pos[1] + 4);
+        ctx.fillText(text, this.options.pos[0], this.options.pos[1] + 4);
         ctx.fill();
     }
 

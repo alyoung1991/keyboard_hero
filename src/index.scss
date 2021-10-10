@@ -16,24 +16,25 @@ body{
     background-color: white;
     border: 1px solid black;
     width: 80%;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .song-highway {
-    animation-name: scroll;
-    animation-duration: 30s;
-    animation-timing-function: linear;
-    animation-delay: 3s;
+    position: absolute;
+    top: -100%;
+    width: 100%;
+    animation: scroll 5s linear 3s 1 normal forwards;
 }
 
 @keyframes scroll {
     0%{
-        transform: translateY(0px);
+        transform: translateY(0vh);
     }
     100%{
-        transform: translateY(600px);
+        transform: translateY(60vh);
     }
 }
 

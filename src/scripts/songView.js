@@ -1,12 +1,12 @@
 import test from './songs/songs';
 
 class SongView {
-    constructor(el){
+    constructor(el, canvas, ctx){
         this.el = el;
-        this.songView = document.createElement("div");
-        this.songView.className = "song-view";
-        this.el.appendChild(this.songView);
-        this.setup();
+        // this.songView = document.createElement("div");
+        // this.songView.className = "song-view";
+        this.el.appendChild(canvas);
+        // this.setup();
     }
 
     setup(){

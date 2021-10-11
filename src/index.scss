@@ -11,48 +11,6 @@ body{
     align-items: center;
 }
 
-// .song-view {
-//     height: 60vh;
-//     background-color: white;
-//     border: 1px solid black;
-//     width: 80%;
-//     position: relative;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-// }
-
-.song-highway {
-    position: absolute;
-    top: -100%;
-    width: 100%;
-    animation: scroll 5s linear 3s 1 normal forwards;
-}
-
-@keyframes scroll {
-    0%{
-        transform: translateY(0vh);
-    }
-    100%{
-        transform: translateY(60vh);
-    }
-}
-
-.song-beat{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.song-note{
-    width: 5%;
-    height: 60px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .keyboard {
     width: 800px;
     display: flex;
@@ -67,6 +25,10 @@ body{
     background-color: white;
 }
 
-.key-down {
-    filter: brightness(80%);
+.valid-key-down {
+    background-color: $valid-green;
+}
+
+.invalid-key-down {
+    background-color: $invalid-red;
 }

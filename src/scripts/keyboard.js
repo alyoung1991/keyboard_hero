@@ -25,8 +25,9 @@ const KEY_NOTE_MAP = {
 };
 
 class Keyboard {
-    constructor(el){
+    constructor(el, songView){
         this.el = el;
+        this.songView = songView;
         this.keyboard = document.createElement("div");
         this.keyboard.className = "keyboard";
         this.el.appendChild(this.keyboard);
@@ -46,11 +47,18 @@ class Keyboard {
     }
 
     handleKeydown(e){
+        Tone.context.resume();
         // prevents playNote from executing when key is being held down.
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
+            // todo prevent multiple score for same note
+            let validPoint = this.songView.isValidKey(e.key);
             // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
             let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
-            key.classList.toggle("key-down");
+            if(validPoint){
+                key.classList.toggle("valid-key-down");
+            }else{
+                key.classList.toggle("invalid-key-down");
+            }
             this.playNote(KEY_NOTE_MAP[e.key]);
         }
     }
@@ -60,7 +68,11 @@ class Keyboard {
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
             // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
             let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
-            key.classList.toggle("key-down");
+            if(key.classList.contains("valid-key-down")){
+                key.classList.toggle("valid-key-down");
+            }else if(key.classList.contains("invalid-key-down")){
+                key.classList.toggle("invalid-key-down");
+            }
         }
     }
 

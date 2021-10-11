@@ -39,7 +39,6 @@ class SongView {
 
     step(){
         this.moveObjects();
-        this.checkCollisions();
     }
 
     moveObjects(){
@@ -55,13 +54,20 @@ class SongView {
         });
     }
 
-    checkCollisions(){
+    // compares keydown event handlers key pressed to the note in the valid range of the canvas
+    isValidKey(key){
         for(let i = 0; i < this.allNotes.length; i++){
             let currNote = this.allNotes[i];
-            if(currNote.options.pos[1] === 460){
-                // do something
+            // if there is a note to be played
+            if(currNote.options.text != "" && currNote.options.pos[1] > 440 && currNote.options.pos[1] < 480){
+                if(currNote.options.text === key){
+                    return true;
+                }else{
+                    return false;
+                }
             }
         }
+        return false;
     }
 }
 

@@ -96,8 +96,8 @@ class SongView {
                 }
             }
         }
-        this.score -= 100;
         // no notes to be played
+        this.score -= 100;
         return false;
     }
 

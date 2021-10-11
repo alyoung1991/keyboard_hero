@@ -1,24 +1,34 @@
 import Score from "./score";
 import SongView from "./song_view";
 import Keyboard from "./keyboard";
+import Navigation from "./navigation";
 
 class Game {
     constructor(el){
         this.el = el;
+        this.navigation = this.addNavigation();
         this.score = this.addScore();
         this.songView = this.addSongView();
         this.keyboard = this.addKeyboard();
     }
 
+    
+    addNavigation(){
+        let main = document.getElementById("main");
+        let nav = new Navigation(main, this);
+        return nav;
+    }
+    
     addScore(){
-        let left = document.getElementById("left");
-        let score = new Score(left);
+        let nav = document.querySelector(".nav");
+        let score = new Score(nav);
         return score;
     }
 
     addSongView(){
         let main = document.getElementById("main");
-        const canvas = document.querySelector(".song-canvas");
+        const canvas = document.createElement("canvas");
+        canvas.className = "song-canvas";
         canvas.width = 800;
         canvas.height = 460;
         canvas.style.background = "black";

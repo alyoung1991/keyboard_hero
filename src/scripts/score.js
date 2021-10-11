@@ -4,7 +4,7 @@ class Score {
         this.totalPoints = 0;
         this.scoreDisplay = document.createElement("div");
         this.scoreDisplay.className = "score-display";
-        this.scoreDisplay.innerText = this.totalPoints;
+        this.scoreDisplay.innerHTML = this.totalPoints;
         this.el.appendChild(this.scoreDisplay);
     }
 

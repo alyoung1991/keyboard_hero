@@ -7,16 +7,25 @@ body {
   justify-content: center;
 }
 
-#game-view {
+#game {
   width: 100%;
   display: none;
 }
 
-#left {
-  width: 100%;
-  color: white;
+.nav {
+  width: 800px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.back-button {
+  width: 50%;
+  color: black;
+}
+
+.score-display {
+  color: white;
+  width: 50%;
 }
 
 #main {
@@ -33,7 +42,7 @@ body {
 }
 
 .key {
-  height: 250px;
+  height: 180px;
   width: 5%;
   border: 1px solid #5f5f5f;
   border-radius: 0 0 5px 5px;

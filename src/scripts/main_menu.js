@@ -1,6 +1,3 @@
-import SongView from "./song_view";
-import Keyboard from "./keyboard";
-import Score from "./score";
 import Game from "./game";
 
 class MainMenu {

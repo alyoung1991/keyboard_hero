@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext('2d');
 
     const songView = new SongView(main, canvas, ctx);
-    songView.start();
     let keyboard = new Keyboard(main);
     document.addEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
     document.addEventListener("keyup", keyboard.handleKeyup.bind(keyboard));

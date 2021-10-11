@@ -1,6 +1,7 @@
 import SongView from "./song_view";
 import Keyboard from "./keyboard";
 import Score from "./score";
+import Game from "./game";
 
 class MainMenu {
     constructor(el){
@@ -19,22 +20,11 @@ class MainMenu {
 
     // setup code for creating a new score, canvas, and keyboard class instances
     startGame(){
-        let gameView = document.getElementById("game-view");
+        // create new instance of Game
+        let game = document.getElementById("game");
+        new Game(game);
         this.el.classList.toggle("hidden");
-        gameView.style.display = "flex";
-        const canvas = document.querySelector(".song-canvas");
-        canvas.width = 800;
-        canvas.height = 460;
-        canvas.style.background = "black";
-        const ctx = canvas.getContext('2d');
-        const left = document.getElementById("left");
-        const main = document.getElementById("main");
-        const right = document.getElementById("right");
-        let score = new Score(left);
-        let songView = new SongView(main, canvas, ctx, score);
-        let keyboard = new Keyboard(main, songView);
-        document.addEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
-        document.addEventListener("keyup", keyboard.handleKeyup.bind(keyboard));
+        game.style.display = "flex";
     }
 
     displayInstructions(){

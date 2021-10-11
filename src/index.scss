@@ -3,6 +3,12 @@
 body{
     background-color: rgb(43, 43, 43);
     display: flex;
+    justify-content: center;
+}
+
+#game-view {
+    width: 100%;
+    display: none;
 }
 
 #left {
@@ -40,4 +46,8 @@ body{
 
 .invalid-key-down {
     background-color: $invalid-red;
+}
+
+.hidden {
+    display: none;
 }

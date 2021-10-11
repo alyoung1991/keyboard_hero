@@ -4,6 +4,12 @@
 body {
   background-color: #2b2b2b;
   display: flex;
+  justify-content: center;
+}
+
+#game-view {
+  width: 100%;
+  display: none;
 }
 
 #left {
@@ -40,4 +46,8 @@ body {
 
 .invalid-key-down {
   background-color: #ffa2a2;
+}
+
+.hidden {
+  display: none;
 }

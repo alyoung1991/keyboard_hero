@@ -49,7 +49,7 @@ class SongView {
                 this.step();
                 this.draw();
             }, 20);
-        }, 10);
+        }, 3000);
     }
 
     step(){

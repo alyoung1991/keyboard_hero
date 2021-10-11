@@ -2,6 +2,15 @@
 
 body{
     background-color: rgb(43, 43, 43);
+    display: flex;
+}
+
+#left {
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    // todo: add font styling for video game score
 }
 
 #main {

@@ -3,6 +3,14 @@
   \*************************************************************************************************************************************/
 body {
   background-color: #2b2b2b;
+  display: flex;
+}
+
+#left {
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 #main {

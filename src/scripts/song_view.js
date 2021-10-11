@@ -2,15 +2,14 @@ import song from './songs/songs';
 import MovingObject from './moving_object';
 import KEY_NOTE_MAP from './keys/key';
 
-
 class SongView {
-    constructor(el, canvas, ctx){
+    constructor(el, canvas, ctx, score){
         this.el = el;
         this.ctx = ctx;
         this.songView = canvas;
         this.allNotes = this.loadSong(song);
         this.scoreObj = this.buildScoreObject();
-        this.score = 0;
+        this.score = score;
         this.el.appendChild(canvas);
         this.start();
     }
@@ -63,6 +62,7 @@ class SongView {
         });
     }
 
+    // clear canvas and draw newly positioned notes
     draw(){
         this.ctx.clearRect(0, 0, 800, 460);
         this.allNotes.forEach((note) => {
@@ -78,29 +78,32 @@ class SongView {
             if(currNote.options.text != "" && currNote.options.pos[1] > 440 && currNote.options.pos[1] < 480){
                 // current note pressed
                 if(currNote.options.text === key){
-                    // first correct note played
+                    // first correct note played, (uses i/20 to get row/beat the song is currently at)
                     if(!this.scoreObj[key].includes(Math.floor(i/20))){
                         this.scoreObj[key].push(Math.floor(i/20));
-                        this.score += 100;
+                        this.score.updateScore(100);
                     }
                     // all subsequent "correct" notes played
                     else{
-                        this.score -= 100;
+                        this.score.updateScore(-100);
                     }
                     return true;
                 }
                 // wrong note played
                 else{
-                    this.score -= 100;
+                    this.score.updateScore(-100);
                     return false;
                 }
             }
         }
         // no notes to be played
-        this.score -= 100;
+        this.score.updateScore(-100);
         return false;
     }
 
+    // isGameOver(){
+        
+    // }
 }
 
 export default SongView;

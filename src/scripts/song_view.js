@@ -1,13 +1,16 @@
 import song from './songs/songs';
 import MovingObject from './moving_object';
+import KEY_NOTE_MAP from './keys/key';
 
 
 class SongView {
     constructor(el, canvas, ctx){
         this.el = el;
-        this.songView = canvas;
         this.ctx = ctx;
+        this.songView = canvas;
         this.allNotes = this.loadSong(song);
+        this.scoreObj = this.buildScoreObject();
+        this.score = 0;
         this.el.appendChild(canvas);
         this.start();
     }
@@ -30,10 +33,23 @@ class SongView {
         return allNotes;
     }
 
+    // builds score object with each key being a key char and the value being an array of "beats" the key char appears in
+    buildScoreObject(){
+        let score = {};
+        let notes = Object.keys(KEY_NOTE_MAP);
+        for(let i = 0; i < notes.length; i++){
+            score[notes[i]] = [];
+        }
+        return score;
+    }
+
+    // begin game & falling animation
     start(){
-        setInterval(() => {
-            this.step();
-            this.draw();
+        setTimeout(() => {
+            setInterval(() => {
+                this.step();
+                this.draw();
+            }, 20);
         }, 10);
     }
 
@@ -60,15 +76,31 @@ class SongView {
             let currNote = this.allNotes[i];
             // if there is a note to be played
             if(currNote.options.text != "" && currNote.options.pos[1] > 440 && currNote.options.pos[1] < 480){
+                // current note pressed
                 if(currNote.options.text === key){
+                    // first correct note played
+                    if(!this.scoreObj[key].includes(Math.floor(i/20))){
+                        this.scoreObj[key].push(Math.floor(i/20));
+                        this.score += 100;
+                    }
+                    // all subsequent "correct" notes played
+                    else{
+                        this.score -= 100;
+                    }
                     return true;
-                }else{
+                }
+                // wrong note played
+                else{
+                    this.score -= 100;
                     return false;
                 }
             }
         }
+        this.score -= 100;
+        // no notes to be played
         return false;
     }
+
 }
 
 export default SongView;

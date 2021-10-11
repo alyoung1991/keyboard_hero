@@ -50,14 +50,16 @@ class Keyboard {
         Tone.context.resume();
         // prevents playNote from executing when key is being held down.
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
-            // todo prevent multiple score for same note
+            // todo 
+            // prevent multiple score for same note
             let validPoint = this.songView.isValidKey(e.key);
             // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
             let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
+            // toggles green/red key styling based on presence of *-key-down class
             if(validPoint){
-                key.classList.toggle("valid-key-down");
+                key.classList.add("valid-key-down");
             }else{
-                key.classList.toggle("invalid-key-down");
+                key.classList.add("invalid-key-down");
             }
             this.playNote(KEY_NOTE_MAP[e.key]);
         }
@@ -68,15 +70,13 @@ class Keyboard {
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
             // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
             let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
-            if(key.classList.contains("valid-key-down")){
-                key.classList.toggle("valid-key-down");
-            }else if(key.classList.contains("invalid-key-down")){
-                key.classList.toggle("invalid-key-down");
-            }
+            // removes green/red key styling
+            key.classList.remove("valid-key-down", "invalid-key-down");
         }
     }
 
     playNote(note){
+        // play sound at pitch
         piano.triggerAttackRelease(note, "8n", Tone.context.currentTime);
     }
 }

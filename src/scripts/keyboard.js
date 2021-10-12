@@ -25,8 +25,15 @@ class Keyboard {
             key.dataset.note = notes[i];
             // display note letter on keys without the scale number
             key.innerText = notes[i].replace(/[0-9]/g, '');
-            // key.addEventListener("click", (e) => this.playNote(e.target.dataset.note))
-            this.keyboard.appendChild(key);
+            if(notes[i].includes("#")){
+                let parentKeyNote = notes[i].replace('#', '');
+                let parentKey = document.querySelector(`.key[data-note="${parentKeyNote}"`);
+                key.classList.add("black-key");
+                parentKey.appendChild(key);
+            }else{
+                key.classList.add("white-key");
+                this.keyboard.appendChild(key);
+            }
         }
         this.keyboard.appendChild(rightBorder);
     }

@@ -1,4 +1,6 @@
 import song from './songs/songs';
+import * as Tone from 'tone';
+import piano from './sounds/piano';
 import MovingObject from './moving_object';
 import KEY_NOTE_MAP from './keys/key';
 
@@ -20,12 +22,18 @@ class SongView {
 
     loadSong(song){
         let allNotes = [];
+        // hard coding the x coordinates for each note as black keys made implementing this difficult
+        let xCoord = [52.585, 75.17, 97.755, 120.34, 
+                    165.51, 188.095, 210.68, 233.265, 
+                    255, 278.435, 301.02, 323.605, 
+                    368.775, 391.36, 413.945, 436.53, 
+                    459.115, 504.285, 526.87, 549.455];
         for(let i = 0; i < song.length; i++){
             for(let j = 0; j < song[i].length; j++){
                 let note = new MovingObject({
                     // positions note objects just above canvas view
-                    pos:[j*30 + 15, i*30 + 15 - (song.length * 30)],
-                    radius: 15,
+                    pos:[xCoord[j], i*30 + 10 - (song.length * 30)],
+                    radius: 10,
                     color: "#000000",
                     text: song[i][j]
                 });
@@ -52,8 +60,13 @@ class SongView {
             setInterval(() => {
                 this.step();
                 this.draw();
-            }, 20);
-        }, 3000);
+            }, 10);
+        }, 5000);
+        // 3-2-1-GO countdown sounds
+        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
+        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
+        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
+        piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
     }
 
     step(){
@@ -74,6 +87,7 @@ class SongView {
         });
     }
 
+    // todo: handle multiple notes on one beat
     // compares keydown event handlers key pressed to the note in the valid range of the canvas
     isValidKey(key){
         for(let i = 0; i < this.allNotes.length; i++){

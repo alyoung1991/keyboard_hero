@@ -29,8 +29,8 @@ class Game {
         let main = document.getElementById("main");
         const canvas = document.createElement("canvas");
         canvas.className = "song-canvas";
-        canvas.width = 800;
-        canvas.height = 460;
+        canvas.width = 600;
+        canvas.height = 560;
         canvas.style.background = "black";
         const ctx = canvas.getContext('2d');
         let songView = new SongView(main, canvas, ctx, this.score);

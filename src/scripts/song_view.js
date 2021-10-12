@@ -20,8 +20,8 @@ class SongView {
             for(let j = 0; j < song[i].length; j++){
                 let note = new MovingObject({
                     // positions note objects just above canvas view
-                    pos:[j*40 + 20, i*40 + 20 - (song.length * 40)],
-                    radius: 20,
+                    pos:[j*30 + 15, i*30 + 15 - (song.length * 30)],
+                    radius: 15,
                     color: "#000000",
                     text: song[i][j]
                 });
@@ -64,7 +64,7 @@ class SongView {
 
     // clear canvas and draw newly positioned notes
     draw(){
-        this.ctx.clearRect(0, 0, 800, 460);
+        this.ctx.clearRect(0, 0, 600, 560);
         this.allNotes.forEach((note) => {
             note.draw(this.ctx);
         });
@@ -75,7 +75,7 @@ class SongView {
         for(let i = 0; i < this.allNotes.length; i++){
             let currNote = this.allNotes[i];
             // if there is a note to be played
-            if(currNote.options.text != "" && currNote.options.pos[1] > 440 && currNote.options.pos[1] < 480){
+            if(currNote.options.text != "" && currNote.options.pos[1] > 540 && currNote.options.pos[1] < 580){
                 // current note pressed
                 if(currNote.options.text === key){
                     // first correct note played, (uses i/20 to get row/beat the song is currently at)
@@ -100,10 +100,6 @@ class SongView {
         this.score.updateScore(-100);
         return false;
     }
-
-    // isGameOver(){
-        
-    // }
 }
 
 export default SongView;

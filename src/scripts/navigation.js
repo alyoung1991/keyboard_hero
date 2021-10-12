@@ -28,9 +28,7 @@ class Navigation {
 
     endGame(){
         const mainMenu = document.getElementById("main-menu");
-        document.getElementById("left").innerHTML = '';
         document.getElementById("main").innerHTML = '';
-        document.getElementById("right").innerHTML = '';
         document.getElementById("game").style.display = "none";
         mainMenu.classList.toggle("hidden");
     }

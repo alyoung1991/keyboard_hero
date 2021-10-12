@@ -1,9 +1,13 @@
 @import "./styles/style.scss";
 
 body{
-    background-color: rgb(43, 43, 43);
+    background-color: #2b2b2b;
     display: flex;
     justify-content: center;
+}
+
+.piano-svg {
+    position: absolute;
 }
 
 #game {
@@ -11,11 +15,11 @@ body{
     display: none;
 }
 
-#left {
-    // width: 100%;
-    // display: flex;
-    // justify-content: center;
-    // todo: add font styling for video game score
+.piano-svg {
+    width: 920px;
+    margin-left: 60px;
+    filter: invert(12%) sepia(7%) saturate(16%) hue-rotate(330deg) brightness(102%) contrast(88%);
+    z-index: 1;
 }
 
 .nav {
@@ -42,13 +46,13 @@ body{
 }
 
 .keyboard {
-    width: 800px;
+    width: 600px;
     display: flex;
     justify-content: center;
 }
 
 .key {
-    height: 180px;
+    height: 100px;
     width: 5%;
     border: 1px solid $gray;
     border-radius: 0 0 5px 5px;

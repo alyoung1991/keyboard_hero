@@ -19,7 +19,7 @@ class MovingObject {
     }
 
     move(ctx){
-        this.options.pos[1] += 1;
+        this.options.pos[1] += 2;
         this.draw(ctx);
     }
 }

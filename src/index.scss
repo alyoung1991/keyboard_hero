@@ -28,9 +28,11 @@ body{
 }
 
 .nav {
-    width: 800px;
+    position: absolute;
+    transform: translate(-275px, 30px);
     display: flex;
     justify-content: space-around;
+    z-index: 4;
 }
 
 .back-button {
@@ -118,7 +120,7 @@ body{
 }
 
 .slide {
-    animation: slidein 5s;
+    animation: slidein 4s;
 }
 
 @keyframes slidein {

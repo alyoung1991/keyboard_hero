@@ -31,6 +31,8 @@ class Navigation {
         document.getElementById("main").innerHTML = '';
         document.querySelector(".game").style.display = "none";
         mainMenu.classList.toggle("hidden");
+        let audio = document.querySelector('audio');
+        audio.pause();
     }
 }
 

@@ -28,14 +28,14 @@ class SongView {
                     255, 278.435, 301.02, 323.605, 
                     368.775, 391.36, 413.945, 436.53, 
                     459.115, 504.285, 526.87, 549.455];
-        for(let i = 0; i < song.length; i++){
-            for(let j = 0; j < song[i].length; j++){
+        for(let i = 0; i < song.notes.length; i++){
+            for(let j = 0; j < song.notes[i].length; j++){
                 let note = new MovingObject({
                     // positions note objects just above canvas view
-                    pos:[xCoord[j], i*30 + 10 - (song.length * 30)],
+                    pos:[xCoord[j], i*20 + 10 - (song.notes.length * 20)],
                     radius: 10,
                     color: "#000000",
-                    text: song[i][j]
+                    text: song.notes[i][j]
                 });
                 note.draw(this.ctx);
                 allNotes.push(note);
@@ -60,8 +60,8 @@ class SongView {
             setInterval(() => {
                 this.step();
                 this.draw();
-            }, 10);
-        }, 5000);
+            }, song.tempo);
+        }, /*12400 +*/ 4000);
         // 3-2-1-GO countdown sounds
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);

@@ -24,6 +24,11 @@ class MainMenu {
         this.el.classList.toggle("hidden");
         main.classList.toggle("slide");
         game.classList.toggle("reveal");
+        // setTimeout(() => {
+        //     let audio = document.querySelector('audio');
+        //     audio.play();
+        // }, 4000);
+        
     }
 
     displayInstructions(){

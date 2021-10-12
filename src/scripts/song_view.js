@@ -10,6 +10,10 @@ class SongView {
         this.allNotes = this.loadSong(song);
         this.scoreObj = this.buildScoreObject();
         this.score = score;
+        let pianoSvg = document.createElement("img");
+        pianoSvg.className = "piano-svg";
+        pianoSvg.src = "./src/assets/piano.png";
+        this.el.appendChild(pianoSvg);
         this.el.appendChild(canvas);
         this.start();
     }

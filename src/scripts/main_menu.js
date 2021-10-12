@@ -18,12 +18,12 @@ class MainMenu {
     // setup code for creating a new score, canvas, and keyboard class instances
     startGame(){
         // create new instance of Game
-        let game = document.getElementById("game");
+        let game = document.querySelector(".game");
         let main = document.getElementById("main");
         new Game(game);
         this.el.classList.toggle("hidden");
-        game.classList.toggle("slide");
-        game.style.display = "flex";
+        main.classList.toggle("slide");
+        game.classList.toggle("reveal");
     }
 
     displayInstructions(){

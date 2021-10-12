@@ -7,15 +7,23 @@ body {
   justify-content: center;
 }
 
-#game {
+.game {
   width: 100%;
   display: none;
+}
+
+#main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .piano-svg {
   position: absolute;
   width: 920px;
-  margin-left: 60px;
+  margin-left: 122px;
   filter: invert(12%) sepia(7%) saturate(16%) hue-rotate(330deg) brightness(102%) contrast(88%);
   z-index: 1;
 }
@@ -45,13 +53,6 @@ body {
   z-index: 2;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-#main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -91,6 +92,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+.reveal {
+  display: flex;
 }
 
 .slide {

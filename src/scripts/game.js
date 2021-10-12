@@ -11,7 +11,6 @@ class Game {
         this.songView = this.addSongView();
         this.keyboard = this.addKeyboard();
     }
-
     
     addNavigation(){
         let main = document.getElementById("main");
@@ -20,8 +19,8 @@ class Game {
     }
     
     addScore(){
-        let nav = document.querySelector(".nav");
-        let score = new Score(nav);
+        let main = document.getElementById("main");
+        let score = new Score(main);
         return score;
     }
 

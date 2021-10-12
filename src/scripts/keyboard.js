@@ -14,14 +14,21 @@ class Keyboard {
 
     setup(){
         let notes = Object.values(KEY_NOTE_MAP);
+        let leftBorder = document.createElement("div");
+        let rightBorder = document.createElement("div");
+        leftBorder.className = "keyboard-border";
+        rightBorder.className = "keyboard-border";
+        this.keyboard.appendChild(leftBorder);
         for(let i = 0; i < notes.length; i++){
             let key = document.createElement("div");
             key.className = "key";
             key.dataset.note = notes[i];
-            key.innerText = notes[i];
+            // display note letter on keys without the scale number
+            key.innerText = notes[i].replace(/[0-9]/g, '');
             // key.addEventListener("click", (e) => this.playNote(e.target.dataset.note))
             this.keyboard.appendChild(key);
         }
+        this.keyboard.appendChild(rightBorder);
     }
 
     handleKeydown(e){

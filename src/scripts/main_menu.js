@@ -19,8 +19,10 @@ class MainMenu {
     startGame(){
         // create new instance of Game
         let game = document.getElementById("game");
+        let main = document.getElementById("main");
         new Game(game);
         this.el.classList.toggle("hidden");
+        game.classList.toggle("slide");
         game.style.display = "flex";
     }
 

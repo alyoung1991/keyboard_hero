@@ -16,9 +16,7 @@ const KEY_NOTE_MAP = {
     "l": "D5",
     "p": "D#5",
     ";": "E5",
-    "'": "F5",
-    "]": "F#5",
-    "Enter": "G5"
+    "'": "F5"
 };
 
 export default KEY_NOTE_MAP;

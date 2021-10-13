@@ -8,6 +8,7 @@ class Keyboard {
         this.songView = songView;
         this.keyboard = document.createElement("div");
         this.keyboard.className = "keyboard";
+        this.volume = 50;
         this.el.appendChild(this.keyboard);
         this.setup();
     }
@@ -64,6 +65,16 @@ class Keyboard {
             // removes green/red key styling
             key.classList.remove("valid-key-down", "invalid-key-down");
         }
+    }
+
+    changeVolume(e){
+        // this.volume = e.target.value;
+        // let volume = new Tone.Volume(this.volume).toDestination();
+        // piano.connect(volume);
+        // console.log(Tone.Master);
+        Tone.Master.volume.input.value = e.target.value/100;
+        // Tone.Master.mute = true;
+        // console.log(Tone.Master.volume);
     }
 
     playNote(note){

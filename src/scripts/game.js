@@ -13,6 +13,7 @@ class Game {
         this.keyboard = new Keyboard(main, this.songView);
         this.keydown = null;
         this.keyup = null;
+        this.changeVolume = null;
         this.addListeners();
     }
 
@@ -40,20 +41,15 @@ class Game {
         return songView;
     }
 
-    // addKeyboard(){
-    //     let main = document.getElementById("main");
-    //     // this.keyboard = new Keyboard(main, this.songView);
-    //     this.keydown = this.keyboard.handleKeydown;
-    //     this.keyup = this.keyboard.handleKeyup;
-    //     document.addEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
-    //     document.addEventListener("keyup", keyboard.handleKeyup.bind(keyboard));
-    // }
-
     addListeners(){
         this.keydown = this.keyboard.handleKeydown.bind(this.keyboard);
         this.keyup = this.keyboard.handleKeyup.bind(this.keyboard);
+        this.changeVolume = this.keyboard.changeVolume.bind(this.keyboard);
+        let volume = document.querySelector(".volume-slider");
+
         document.addEventListener("keydown", this.keydown);
         document.addEventListener("keyup", this.keyup);
+        volume.addEventListener("input", this.changeVolume);
     }
 
     endGame(){

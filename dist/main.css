@@ -9,12 +9,6 @@ body {
   align-items: center;
 }
 
-#main-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .start-button, .instructions-button {
   height: 50px;
   width: 200px;

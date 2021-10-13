@@ -64,9 +64,6 @@ class SongView {
 
     // begin game & falling animation
     start(){
-        setTimeout(() => {
-            this.game.endGame();
-        }, song.length + 3000);
         this.interval = setInterval(() => {
                 this.step();
                 this.draw();
@@ -86,14 +83,18 @@ class SongView {
     // clear canvas and draw newly positioned notes
     draw(){
         this.ctx.clearRect(0, 0, 600, 560);
+        let notesPassed = [];
         this.allNotes.forEach((note) => {
             note.draw(this.ctx);
+            if(note.options.pos[1] > 650){
+                if(!notesPassed.includes(note)){
+                    notesPassed.push(note);
+                }
+            }
         });
-    }
-
-    // counts how many notes have passed bottom border of canvas
-    countNotesPassed(){
-
+        if(notesPassed.length === this.allNotes.length){
+            // this.game.endGame();
+        }
     }
 
     // todo: handle multiple notes on one beat
@@ -123,6 +124,7 @@ class SongView {
                 }
             }
         }
+        
         // no notes to be played
         this.score.updateScore(-100);
         return false;

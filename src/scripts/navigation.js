@@ -21,12 +21,12 @@ class Navigation {
 
     handleBackButton(){
         // if end game confirmed
-        let audio = document.querySelector('audio');
-        audio.pause();
+        // let audio = document.querySelector('audio');
+        // audio.pause();
         if(confirm("Are you sure you want to end game?")){
             this.game.endGame();
         }else{
-            audio.play();
+            // audio.play();
         }
     }
 }

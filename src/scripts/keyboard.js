@@ -10,6 +10,13 @@ class Keyboard {
         this.keyboard.className = "keyboard";
         this.volume = 50;
         this.el.appendChild(this.keyboard);
+        let volumeSlider = document.createElement("input");
+        volumeSlider.setAttribute("type", "range");
+        volumeSlider.setAttribute("min", 0);
+        volumeSlider.setAttribute("max", 200);
+        volumeSlider.setAttribute("value", 100);
+        volumeSlider.className = "volume-slider";
+        this.el.appendChild(volumeSlider);
         this.setup();
     }
 
@@ -41,19 +48,29 @@ class Keyboard {
 
     handleKeydown(e){
         // prevents playNote from executing when key is being held down.
-        if(KEY_NOTE_MAP[e.key] && !e.repeat){
-            // todo 
-            // prevent multiple score for same note
-            let validPoint = this.songView.isValidKey(e.key);
-            // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
+        if(KEY_NOTE_MAP[e.key]){
             let key = document.querySelector(`.key[data-note=${KEY_NOTE_MAP[e.key].replace("#", "\\#")}]`);
-            // toggles green/red key styling based on presence of *-key-down class
-            if(validPoint){
-                key.classList.add("valid-key-down");
-            }else{
-                key.classList.add("invalid-key-down");
+            let blackKey = key.lastChild; 
+            if(!e.repeat){
+                let validPoint = this.songView.isValidKey(e.key);
+                // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"
+                // toggles green/red key styling based on presence of *-key-down class
+                if(validPoint){
+                    key.classList.add("valid-key-down");
+                }else{
+                    key.classList.add("invalid-key-down");
+                }
+                this.playNote(KEY_NOTE_MAP[e.key]);
             }
-            this.playNote(KEY_NOTE_MAP[e.key]);
+            if(key.classList.contains("bounce1")){
+                key.classList.remove("bounce1");
+                key.classList.add("bounce2");
+            }else if(key.classList.contains("bounce2")){
+                key.classList.remove("bounce2");
+                key.classList.add("bounce1");
+            }else{
+                key.classList.add("bounce1");
+            }
         }
     }
 
@@ -68,13 +85,7 @@ class Keyboard {
     }
 
     changeVolume(e){
-        // this.volume = e.target.value;
-        // let volume = new Tone.Volume(this.volume).toDestination();
-        // piano.connect(volume);
-        // console.log(Tone.Master);
         Tone.Master.volume.input.value = e.target.value/100;
-        // Tone.Master.mute = true;
-        // console.log(Tone.Master.volume);
     }
 
     playNote(note){

@@ -39,7 +39,7 @@ class Keyboard {
     }
 
     handleKeydown(e){
-        Tone.context.resume();
+        console.log(e);
         // prevents playNote from executing when key is being held down.
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
             // todo 
@@ -58,6 +58,7 @@ class Keyboard {
     }
 
     handleKeyup(e){
+        console.log(e);
         // prevents playNote from executing when key is being held down.
         if(KEY_NOTE_MAP[e.key] && !e.repeat){
             // handles selectors which contain the '#' char (e.g C#4) by replacing the '#' with an escaped escape # string"

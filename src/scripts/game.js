@@ -9,9 +9,13 @@ class Game {
         this.navigation = this.addNavigation();
         this.score = this.addScore();
         this.songView = this.addSongView();
-        this.keyboard = this.addKeyboard();
+        let main = document.getElementById("main");
+        this.keyboard = new Keyboard(main, this.songView);
+        this.keydown = null;
+        this.keyup = null;
+        this.addListeners();
     }
-    
+
     addNavigation(){
         let main = document.getElementById("main");
         let nav = new Navigation(main, this);
@@ -26,7 +30,7 @@ class Game {
 
     addSongView(){
         let main = document.getElementById("main");
-        const canvas = document.createElement("canvas");
+        let canvas = document.createElement("canvas");
         canvas.className = "song-canvas";
         canvas.width = 600;
         canvas.height = 560;
@@ -36,12 +40,40 @@ class Game {
         return songView;
     }
 
-    addKeyboard(){
+    // addKeyboard(){
+    //     let main = document.getElementById("main");
+    //     // this.keyboard = new Keyboard(main, this.songView);
+    //     this.keydown = this.keyboard.handleKeydown;
+    //     this.keyup = this.keyboard.handleKeyup;
+    //     document.addEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
+    //     document.addEventListener("keyup", keyboard.handleKeyup.bind(keyboard));
+    // }
+
+    addListeners(){
+        debugger;
+        this.keydown = this.keyboard.handleKeydown.bind(this.keyboard);
+        this.keyup = this.keyboard.handleKeyup.bind(this.keyboard);
+        document.addEventListener("keydown", this.keydown);
+        document.addEventListener("keyup", this.keyup);
+    }
+
+    endGame(){
+        const mainMenu = document.getElementById("main-menu");
         let main = document.getElementById("main");
-        let keyboard = new Keyboard(main, this.songView);
-        document.addEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
-        document.addEventListener("keyup", keyboard.handleKeyup.bind(keyboard));
-        return keyboard;
+        let game = document.querySelector(".game");
+        document.removeEventListener("keydown", this.keydown);
+        document.removeEventListener("keyup", this.keyup);
+        main.classList.toggle("slide");
+        main.classList.toggle("hidden");
+        game.style.display = "none";
+        main.innerHTML = '';
+        mainMenu.classList.toggle("hidden");
+        this.songView.removeCanvas();
+        this.songView = null;
+        this.navigation = null;
+        this.score = null;
+        this.keyboard = null;
+        this.el = null;
     }
 }
 

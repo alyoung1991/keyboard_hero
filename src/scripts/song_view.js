@@ -1,5 +1,5 @@
-import song from './songs/songs';
 import * as Tone from 'tone';
+import song from './songs/songs';
 import piano from './sounds/piano';
 import MovingObject from './moving_object';
 import KEY_NOTE_MAP from './keys/key';
@@ -17,7 +17,7 @@ class SongView {
         pianoSvg.src = "./src/assets/piano.png";
         this.el.appendChild(pianoSvg);
         this.el.appendChild(canvas);
-        this.start();
+        this.interval = this.start();
     }
 
     loadSong(song){
@@ -56,17 +56,19 @@ class SongView {
 
     // begin game & falling animation
     start(){
-        setTimeout(() => {
-            setInterval(() => {
+        let interval = setInterval(() => {
                 this.step();
                 this.draw();
             }, song.tempo);
+        setTimeout(() => {
+            interval;
         }, /*12400 +*/ 4000);
         // 3-2-1-GO countdown sounds
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
         piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
+        return interval;
     }
 
     step(){
@@ -117,6 +119,12 @@ class SongView {
         // no notes to be played
         this.score.updateScore(-100);
         return false;
+    }
+
+    removeCanvas(){
+        this.ctx = null;
+        this.songView = null;
+        clearInterval(this.interval);
     }
 }
 

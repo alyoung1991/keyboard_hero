@@ -2,9 +2,26 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 body {
+  height: 95vh;
   background-color: #2b2b2b;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+#main-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-button, .instructions-button {
+  height: 50px;
+  width: 200px;
+}
+
+.instructions-panel {
+  display: none;
 }
 
 .game {
@@ -37,7 +54,6 @@ body {
 }
 
 .back-button {
-  width: 50%;
   color: black;
 }
 

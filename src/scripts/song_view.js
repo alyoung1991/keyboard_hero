@@ -25,7 +25,7 @@ class SongView {
         piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
         setTimeout(() => {
             this.start();
-        }, /*12400 +*/ 4000);
+        }, /*song.startDelay +*/ 4000);
     }
 
     loadSong(song){

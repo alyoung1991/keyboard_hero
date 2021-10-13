@@ -99,7 +99,7 @@ const notes = [
 let song = {
     notes: notes,
     tempo: 16.999,
-    scale: ""
+    startDelay: 12400
 };
 
 export default song;

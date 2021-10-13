@@ -1,9 +1,26 @@
 @import "./styles/style.scss";
 
 body{
+    height: 95vh;
     background-color: $dark-gray;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-button, .instructions-button {
+    height: 50px;
+    width: 200px;
+}
+
+.instructions-panel {
+    display: none;
 }
 
 .game {
@@ -36,7 +53,6 @@ body{
 }
 
 .back-button {
-    width: 50%;
     color: black;
 }
 

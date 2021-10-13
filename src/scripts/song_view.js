@@ -17,7 +17,15 @@ class SongView {
         pianoSvg.src = "./src/assets/piano.png";
         this.el.appendChild(pianoSvg);
         this.el.appendChild(canvas);
-        this.interval = this.start();
+        this.interval = null;
+        this.gameEnded = false;
+        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
+        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
+        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
+        piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
+        setTimeout(() => {
+            this.start();
+        }, /*12400 +*/ 4000);
     }
 
     loadSong(song){
@@ -56,19 +64,18 @@ class SongView {
 
     // begin game & falling animation
     start(){
-        let interval = setInterval(() => {
+        this.interval = setInterval(() => {
                 this.step();
                 this.draw();
             }, song.tempo);
-        setTimeout(() => {
-            interval;
-        }, /*12400 +*/ 4000);
+        // setTimeout(() => {
+        //     this.interval;
+        // }, /*12400 +*/ 4000);
         // 3-2-1-GO countdown sounds
-        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
-        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
-        piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
-        piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
-        return interval;
+        // piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
+        // piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
+        // piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
+        // piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
     }
 
     step(){

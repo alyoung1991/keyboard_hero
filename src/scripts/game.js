@@ -50,7 +50,6 @@ class Game {
     // }
 
     addListeners(){
-        debugger;
         this.keydown = this.keyboard.handleKeydown.bind(this.keyboard);
         this.keyup = this.keyboard.handleKeyup.bind(this.keyboard);
         document.addEventListener("keydown", this.keydown);

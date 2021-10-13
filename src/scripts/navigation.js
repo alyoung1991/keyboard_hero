@@ -29,19 +29,6 @@ class Navigation {
             audio.play();
         }
     }
-
-    // endGame(){
-    //     const mainMenu = document.getElementById("main-menu");
-    //     let main = document.getElementById("main");
-    //     let game = document.querySelector(".game");
-    //     document.removeEventListener("keydown", keyboard.handleKeydown.bind(keyboard));
-    //     document.removeEventListener("keyup", keyboard.handleKeyup.bind(keyboard));
-    //     main.classList.toggle("slide");
-    //     main.classList.toggle("hidden");
-    //     game.style.display = "none";
-    //     main.innerHTML = '';
-    //     mainMenu.classList.toggle("hidden");
-    // }
 }
 
 export default Navigation

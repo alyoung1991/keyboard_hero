@@ -95,11 +95,13 @@ const notes = [
     ["","","","","","","","","","h","","","","","","","","","",""],
     ["","","","","","","","","","h","","","","","","","","","",""]
 ];
-
+// old tempo: 16.999
+// length calculated by ((number of rows in notes array * height of a canvas circle) + canvas height) * length of time(ms) the canvas element move 1px + 3 seconds end buffer
 let song = {
     notes: notes,
-    tempo: 16.999,
-    startDelay: 12400
+    tempo: 18,
+    startDelay: 12400,
+    length: (((notes.length * 20) + 600) * 9)
 };
 
 export default song;

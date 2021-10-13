@@ -5,20 +5,20 @@ import MovingObject from './moving_object';
 import KEY_NOTE_MAP from './keys/key';
 
 class SongView {
-    constructor(el, canvas, ctx, score){
+    constructor(el, canvas, ctx, score, game){
         this.el = el;
         this.ctx = ctx;
         this.songView = canvas;
         this.allNotes = this.loadSong(song);
         this.scoreObj = this.buildScoreObject();
         this.score = score;
+        this.game = game;
         let pianoSvg = document.createElement("img");
         pianoSvg.className = "piano-svg";
         pianoSvg.src = "./src/assets/piano.png";
         this.el.appendChild(pianoSvg);
         this.el.appendChild(canvas);
         this.interval = null;
-        this.gameEnded = false;
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
         piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
@@ -64,18 +64,13 @@ class SongView {
 
     // begin game & falling animation
     start(){
+        setTimeout(() => {
+            this.game.endGame();
+        }, song.length + 3000);
         this.interval = setInterval(() => {
                 this.step();
                 this.draw();
             }, song.tempo);
-        // setTimeout(() => {
-        //     this.interval;
-        // }, /*12400 +*/ 4000);
-        // 3-2-1-GO countdown sounds
-        // piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 1);
-        // piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 2);
-        // piano.triggerAttackRelease("F4", "8n", Tone.context.currentTime + 3);
-        // piano.triggerAttackRelease("F5", "8n", Tone.context.currentTime + 4);
     }
 
     step(){
@@ -94,6 +89,11 @@ class SongView {
         this.allNotes.forEach((note) => {
             note.draw(this.ctx);
         });
+    }
+
+    // counts how many notes have passed bottom border of canvas
+    countNotesPassed(){
+
     }
 
     // todo: handle multiple notes on one beat

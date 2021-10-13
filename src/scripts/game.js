@@ -37,7 +37,7 @@ class Game {
         canvas.height = 560;
         canvas.style.background = "black";
         const ctx = canvas.getContext('2d');
-        let songView = new SongView(main, canvas, ctx, this.score);
+        let songView = new SongView(main, canvas, ctx, this.score, this);
         return songView;
     }
 

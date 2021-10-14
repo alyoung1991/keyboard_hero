@@ -46,10 +46,15 @@ class MainMenu {
         let game = document.querySelector(".game");
         let main = document.getElementById("main");
         this.game = new Game(game);
-        this.el.classList.toggle("hidden");
         this.hideInstructions();
-        game.style.display = "flex";
-        main.classList.toggle("slide");
+        this.el.classList.remove("slide-left");
+        this.el.classList.add("slide-out-right");
+        main.classList.remove("slide-out-top");
+        setTimeout(() => {
+            this.el.classList.toggle("hidden");
+            main.classList.toggle("slide");
+            game.style.display = "flex";
+        }, 1000);
         // game.classList.toggle("reveal");
         // setTimeout(() => {
         //     let audio = document.querySelector('audio');
@@ -61,7 +66,6 @@ class MainMenu {
         this.instructionsPanel.style.display = "flex";
         this.startButton.classList.toggle("hidden");
         this.instructionsButton.classList.toggle("hidden");
-
     }
 
     updateInstructionsContent(e){

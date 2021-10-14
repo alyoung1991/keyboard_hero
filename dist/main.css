@@ -55,6 +55,7 @@ body {
   font-style: normal;
   font-weight: bold;
   font-size: 28px;
+  color: #161616;
   height: 50px;
   width: 250px;
   transform: skew(-9deg) translateX(-10px);
@@ -64,7 +65,7 @@ body {
   color: white;
   text-decoration: none;
   font-size: 32px;
-  margin: 0 10px;
+  margin: 0 12px;
 }
 
 .zoom {
@@ -341,9 +342,45 @@ body {
 
 @keyframes slidein {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-120%);
   }
   to {
     transform: translateY(0%);
+  }
+}
+.slide-out-top {
+  animation: slideouttop 1s;
+}
+
+@keyframes slideouttop {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-110%);
+  }
+}
+.slide-left {
+  animation: slideleft 2s;
+}
+
+@keyframes slideleft {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.slide-out-right {
+  animation: slideoutright 1s;
+}
+
+@keyframes slideoutright {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(120%);
   }
 }

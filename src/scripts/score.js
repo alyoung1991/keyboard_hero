@@ -9,8 +9,7 @@ class Score {
     }
 
     updateScore(points){
-        // todo
-        // if points < 0, animate jiggle and red coloring
+        // animations for points gained/lossed (Need two duplicate animations to handle the same animations being executed in rapid successtion)
         if(points === 100){
             if(this.scoreDisplay.classList.contains("win-point1")){
                 this.scoreDisplay.classList.remove("lose-point1");

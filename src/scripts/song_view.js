@@ -93,7 +93,7 @@ class SongView {
             }
         });
         if(notesPassed.length === this.allNotes.length){
-            // this.game.endGame();
+            this.game.endGame();
         }
     }
 

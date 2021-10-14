@@ -59,16 +59,21 @@ class Game {
         document.removeEventListener("keydown", this.keydown);
         document.removeEventListener("keyup", this.keyup);
         main.classList.toggle("slide");
-        main.classList.toggle("hidden");
-        game.style.display = "none";
-        main.innerHTML = '';
-        mainMenu.classList.toggle("hidden");
+        main.classList.add("slide-out-top");
         this.songView.removeCanvas();
         this.songView = null;
         this.navigation = null;
         this.score = null;
         this.keyboard = null;
         this.el = null;
+        setTimeout(() => {
+            main.innerHTML = '';
+            game.style.display = "none";
+            main.classList.toggle("hidden");
+            mainMenu.classList.toggle("hidden");
+            mainMenu.classList.remove("slide-out-right");
+            mainMenu.classList.add("slide-left");
+        }, 1000);
     }
 }
 

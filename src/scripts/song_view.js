@@ -93,7 +93,9 @@ class SongView {
             }
         });
         if(notesPassed.length === this.allNotes.length){
-            // this.game.endGame();
+            setTimeout(() => {
+                this.game.endGame();
+            }, 1000);
         }
     }
 

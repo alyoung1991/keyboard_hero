@@ -77,7 +77,7 @@ class Game {
         document.removeEventListener("keyup", this.keyup);
         this.main.classList.toggle("slide");
         this.main.classList.add("slide-out-top");
-        this.songView.removeCanvas();
+        this.songView?.removeCanvas();
         this.songView = null;
         this.volume = null;
         this.navigation = null;

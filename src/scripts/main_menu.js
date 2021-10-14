@@ -8,7 +8,7 @@ let instructionsContent = {
         "Controls for the game are the top and middle character keys on your computer's keyboard ('w through ]' and 'a through return'). The keys you need to play are displayed on the game's canvas. In addition, there is a volume control slider you can use to adjust the game's volume to your liking",
         "The 'Song Highway' is where all the notes you need to play will be displayed, with the corresponding key character displayed on each note. As notes fall down the canvase, your goal is to press the correct key at the moment the note reaches the bottom of the canvas! Good luck and have fun!",
         "The keyboard displayed below the Song Highway is represents a real piano keyboard! The note for each key is displayed on the keyboard's keys. When you play a note correctly, the key you played will highlight green, and when you play a note incorrectly, the key will highlight red.",
-        "Scoring in Keyboard hero is simple, play the right note at the right time, you get points. Play the wrong not at any time, you lose points! Your overall score will is displayed on the upper right corner of the game, and will highlight green when you get points, and red when you lose points."            
+        "Scoring in Keyboard hero is simple, play the correct note at the correct time, you get points. Play the wrong note at any time, you lose points! Your overall score will is displayed on the upper right corner, and will highlight green when you get points, and red when you lose points."            
     ]
 }
 

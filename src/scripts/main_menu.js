@@ -2,7 +2,7 @@ import Game from "./game";
 
 let instructionsContent = {
     title: ["Keyboard Hero", "Controls", "Song Highway", "Keyboard", "Score"],
-    imgSrc: ["", "keyboard.png", "songhighway.png", "pianokeys.png", "score.png"],
+    imgSrc: ["#", "keyboard.png", "songhighway.png", "pianokeys.png", "score.png"],
     text: [
         "Keyboard Hero is a web application inspired by the guitar hero frachise. The game allows the user to use their computer's keyboard as a musical keyboard. By starting a game, you have the opportunity to play a song at its original tempo, while the game keeps track of the your score dependent on whether you play the correct node at the correct time. This web application was created for the App Academy's NYC Cohort's Javascript Project. Technologies used are HTML, CSS, JS, and a liitle helpful Tone.js. Created: Alberto Young, October 14th 2021. Song used in the app in Take on Me.",
         "Controls for the game are the top and middle character keys on your computer's keyboard ('w through ]' and 'a through return'). The keys you need to play are displayed on the game's canvas. In addition, there is a volume control slider you can use to adjust the game's volume to your liking",
@@ -70,7 +70,7 @@ class MainMenu {
         let backButton = document.querySelector(".instructions-left-button");
         let forwardButton = document.querySelector(".instructions-right-button");
         title.innerText = instructionsContent.title[this.currInstructionsPage];
-        image.src = "./src/assets/" + instructionsContent.imgSrc[this.currInstructionsPage];
+        image.src = "#";
         text.innerText = instructionsContent.text[this.currInstructionsPage];
         backButton.disabled = true;
         backButton.style.visibility = "hidden";
@@ -113,7 +113,11 @@ class MainMenu {
             forwardButton.style.visibility = "visible";
         }
         title.innerText = instructionsContent.title[this.currInstructionsPage];
-        image.src = "./src/assets/" + instructionsContent.imgSrc[this.currInstructionsPage];
+        if(this.currInstructionsPage === 0){
+            image.src = "#";
+        }else{
+            image.src = "./src/assets/" + instructionsContent.imgSrc[this.currInstructionsPage];
+        }
         text.innerText = instructionsContent.text[this.currInstructionsPage];
     }
 

@@ -4,7 +4,7 @@
 body {
   height: 100vh;
   margin: 0;
-  background-color: #2b2b2b;
+  background-color: #161616;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,7 @@ body {
 .title {
   font-family: "Chakra Petch", sans-serif;
   font-weight: bolder;
+  font-style: italic;
   font-size: 132px;
   text-shadow: 0px 0px 15px #c6c693;
   color: #ffffbc;
@@ -51,16 +52,35 @@ body {
 }
 .start-button, .instructions-button {
   font-family: "Chakra Petch", sans-serif;
+  font-style: normal;
   font-weight: bold;
   font-size: 28px;
   height: 50px;
   width: 250px;
+  transform: skew(-9deg) translateX(-10px);
+}
+
+.social-link {
+  color: white;
+  text-decoration: none;
+  font-size: 32px;
+  margin: 0 10px;
+}
+
+.zoom {
+  transition: transform 0.4s;
+  transition-timing-function: cubic-bezier(0.665, 0.195, 0.26, 2.2);
+}
+
+.zoom:hover {
+  transform: scale(1.5);
 }
 
 .instructions-panel {
-  background-color: white;
+  background-color: #161616;
+  color: #ffffe4;
   border-radius: 5px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.58);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.68);
   display: none;
   padding: 20px;
   width: 500px;
@@ -68,11 +88,15 @@ body {
   flex-direction: column;
 }
 
-.instructions-exit-button {
+.instructions-left-button {
+  visibility: hidden;
+}
+
+.instructions-exit-button, .instructions-left-button, .instructions-right-button {
   width: 20px;
   background: transparent;
   border: none;
-  color: black;
+  color: #ffffe4;
 }
 
 .instructions-container {
@@ -87,6 +111,7 @@ body {
 
 .instructions-content {
   padding: 10px;
+  font-family: "Chakra Petch", sans-serif;
 }
 
 .game {
@@ -115,7 +140,7 @@ body {
   position: absolute;
   width: 920px;
   margin-left: 122px;
-  filter: invert(12%) sepia(7%) saturate(16%) hue-rotate(330deg) brightness(102%) contrast(88%);
+  filter: invert(0%) sepia(40%) saturate(993%) hue-rotate(328deg) brightness(76%) contrast(83%);
   z-index: 3;
 }
 
@@ -132,10 +157,10 @@ body {
 }
 
 .score-display {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   color: #ffffbc;
-  font-size: 26px;
+  font-size: 48px;
   font-family: "Chakra Petch", sans-serif;
   font-style: italic;
   font-weight: bold;
@@ -143,7 +168,7 @@ body {
   background-color: #050505;
   border-radius: 50%;
   position: absolute;
-  transform: translate(230px, 50px);
+  transform: translate(225px, 50px);
   z-index: 4;
   display: flex;
   justify-content: center;
@@ -169,57 +194,57 @@ body {
 @keyframes winpoint1 {
   0% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
   50% {
     color: #19c619;
-    font-size: 36px;
+    font-size: 64px;
   }
   100% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
 }
 @keyframes losepoint1 {
   0% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
   50% {
     color: #ff3a3a;
-    font-size: 36px;
+    font-size: 64px;
   }
   100% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
 }
 @keyframes winpoint2 {
   0% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
   50% {
     color: #19c619;
-    font-size: 36px;
+    font-size: 64px;
   }
   100% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
 }
 @keyframes losepoint2 {
   0% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
   50% {
     color: #ff3a3a;
-    font-size: 36px;
+    font-size: 64px;
   }
   100% {
     color: #ffffbc;
-    font-size: 26px;
+    font-size: 48px;
   }
 }
 .song-canvas {

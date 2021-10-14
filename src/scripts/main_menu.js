@@ -82,13 +82,17 @@ class MainMenu {
         if(this.currInstructionsPage === 0){
             // disable back button
             backButton.disabled = true;
+            backButton.style.visibility = "hidden";
         }else if(this.currInstructionsPage === instructionsContent.title.length - 1){
             // disable forward button
             forwardButton.disabled = true;
+            forwardButton.style.visibility = "hidden";
         }else{
             // enable both buttons
             backButton.disabled = false;
+            backButton.style.visibility = "visible";
             forwardButton.disabled = false;
+            forwardButton.style.visibility = "visible";
         }
         title.innerText = instructionsContent.title[this.currInstructionsPage];
         image.src = instructionsContent.imgSrc[this.currInstructionsPage];

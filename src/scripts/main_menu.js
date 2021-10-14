@@ -63,6 +63,20 @@ class MainMenu {
     }
     displayInstructions(){
         // show instructions panel
+        this.currInstructionsPage = 0;
+        let title = document.querySelector(".instructions-title");
+        let image = document.querySelector(".instructions-image");
+        let text = document.querySelector(".instructions-text");
+        let backButton = document.querySelector(".instructions-left-button");
+        let forwardButton = document.querySelector(".instructions-right-button");
+        title.innerText = instructionsContent.title[this.currInstructionsPage];
+        image.src = "./src/assets/" + instructionsContent.imgSrc[this.currInstructionsPage];
+        text.innerText = instructionsContent.text[this.currInstructionsPage];
+        backButton.disabled = true;
+        backButton.style.visibility = "hidden";
+        forwardButton.disabled = false;
+        forwardButton.style.visibility = "visible";
+
         this.instructionsPanel.style.display = "flex";
         this.startButton.classList.toggle("hidden");
         this.instructionsButton.classList.toggle("hidden");

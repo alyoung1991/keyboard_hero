@@ -10,13 +10,6 @@ class Keyboard {
         this.keyboard.className = "keyboard";
         this.volume = 50;
         this.el.appendChild(this.keyboard);
-        let volumeSlider = document.createElement("input");
-        volumeSlider.setAttribute("type", "range");
-        volumeSlider.setAttribute("min", 0);
-        volumeSlider.setAttribute("max", 200);
-        volumeSlider.setAttribute("value", 100);
-        volumeSlider.className = "volume-slider";
-        this.el.appendChild(volumeSlider);
         this.setup();
     }
 

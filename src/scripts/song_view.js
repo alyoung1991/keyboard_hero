@@ -93,11 +93,10 @@ class SongView {
             }
         });
         if(notesPassed.length === this.allNotes.length){
-            this.game.endGame();
+            // this.game.endGame();
         }
     }
 
-    // todo: handle multiple notes on one beat
     // compares keydown event handlers key pressed to the note in the valid range of the canvas
     isValidKey(key){
         for(let i = 0; i < this.allNotes.length; i++){

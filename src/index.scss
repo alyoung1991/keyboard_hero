@@ -137,11 +137,18 @@ body{
     align-items: center;
 }
 
-.volume-slider{
-    margin: 100 auto;
-    width: 100px;
+.volume-container {
+    color: white;
+    width: 145px;
     z-index: 4;
-    transform: translateY(15px);
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(210px, 15px);
+}
+
+.volume-slider{
+    margin: 0 10px;
 }
 
 .piano-svg {

@@ -64,13 +64,12 @@ body{
     color: white;
     text-decoration: none;
     font-size: 32px;
-    margin: 0 10px;
+    margin: 0 12px;
 }
 
 .zoom {
 	transition: transform .4s;
     transition-timing-function: cubic-bezier(0.665, 0.195, 0.260, 2.2);
-
 }
 
 .zoom:hover {

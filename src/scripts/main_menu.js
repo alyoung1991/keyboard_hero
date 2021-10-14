@@ -18,19 +18,20 @@ class MainMenu {
         this.el = el;
         this.game = null;
         this.currInstructionsPage = 0;
+        this.startButton = document.querySelector(".start-button");
+        this.instructionsButton = document.querySelector(".instructions-button");
+        this.instructionsPanel = document.querySelector(".instructions-panel");
         this.setup();
     }
 
     setup(){
-        let startButton = document.querySelector(".start-button");
-        let instructionsButton = document.querySelector(".instructions-button");
         let instructionsExitButton = document.querySelector(".instructions-exit-button");
         let backButton = document.querySelector(".instructions-left-button");
         let forwardButton = document.querySelector(".instructions-right-button");
         // I actually used "that"
         let that = this;
-        startButton.addEventListener("click", this.startGame.bind(that));
-        instructionsButton.addEventListener("click", this.displayInstructions.bind(that));
+        this.startButton.addEventListener("click", this.startGame.bind(that));
+        this.instructionsButton.addEventListener("click", this.displayInstructions.bind(that));
         instructionsExitButton.addEventListener("click", this.hideInstructions.bind(that));
         backButton.addEventListener("click", this.updateInstructionsContent.bind(that));
         forwardButton.addEventListener("click", this.updateInstructionsContent.bind(that));
@@ -56,9 +57,11 @@ class MainMenu {
         // }, 4000);
     }
     displayInstructions(){
-        let instructionsPanel = document.querySelector(".instructions-panel");
         // show instructions panel
-        instructionsPanel.style.display = "flex";
+        this.instructionsPanel.style.display = "flex";
+        this.startButton.classList.toggle("hidden");
+        this.instructionsButton.classList.toggle("hidden");
+
     }
 
     updateInstructionsContent(e){
@@ -93,9 +96,10 @@ class MainMenu {
     }
 
     hideInstructions(){
-        let instructionsPanel = document.querySelector(".instructions-panel");
         // hide instructions panel
-        instructionsPanel.style.display = "none";
+        this.startButton.classList.remove("hidden");
+        this.instructionsButton.classList.remove("hidden");
+        this.instructionsPanel.style.display = "none";
     }
 }
 

@@ -16,7 +16,35 @@ body {
 }
 
 .instructions-panel {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.58);
   display: none;
+  padding: 20px;
+  width: 500px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.instructions-exit-button {
+  width: 20px;
+  background: transparent;
+  border: none;
+  color: black;
+}
+
+.instructions-container {
+  text-align: justify;
+  display: flex;
+  align-items: center;
+}
+
+.instructions-container button {
+  height: 20px;
+}
+
+.instructions-content {
+  padding: 10px;
 }
 
 .game {
@@ -78,6 +106,78 @@ body {
   align-items: center;
 }
 
+.win-point1 {
+  animation: winpoint1 0.2s;
+}
+
+.lose-point1 {
+  animation: losepoint1 0.2s;
+}
+
+.win-point2 {
+  animation: winpoint2 0.2s;
+}
+
+.lose-point2 {
+  animation: losepoint2 0.2s;
+}
+
+@keyframes winpoint1 {
+  0% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+  50% {
+    color: #19c619;
+    font-size: 32px;
+  }
+  100% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+}
+@keyframes losepoint1 {
+  0% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+  50% {
+    color: #ff3a3a;
+    font-size: 32px;
+  }
+  100% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+}
+@keyframes winpoint2 {
+  0% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+  50% {
+    color: #19c619;
+    font-size: 32px;
+  }
+  100% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+}
+@keyframes losepoint2 {
+  0% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+  50% {
+    color: #ff3a3a;
+    font-size: 32px;
+  }
+  100% {
+    color: #ffffbc;
+    font-size: 26px;
+  }
+}
 .song-canvas {
   z-index: 2;
 }

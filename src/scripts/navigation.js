@@ -10,7 +10,8 @@ class Navigation {
         let backButton = document.createElement("button");
         
         nav.className = "nav";
-        backButton.className = "back-button";
+        backButton.classList.add("back-button");
+        backButton.classList.add("zoom");
         backButton.innerHTML = '<i class="fas fa-backward"></i>';
 
         let that = this;

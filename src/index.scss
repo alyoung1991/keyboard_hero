@@ -78,6 +78,7 @@ body{
 }
 
 .instructions-panel {
+    align-items: flex-start;
     background-color: $dark-gray;
     color: $light-yellow;
     border-radius: 5px;
@@ -85,6 +86,7 @@ body{
     display: none;
     padding: 20px;
     width: 500px;
+    height: 362px;
     margin: 0 auto;
     flex-direction: column;
 }
@@ -94,6 +96,7 @@ body{
 }
 
 .instructions-exit-button, .instructions-left-button, .instructions-right-button {
+    font-size: 18px;
     width: 20px;
     background: transparent;
     border: none;
@@ -113,6 +116,10 @@ body{
 .instructions-content {
     padding: 10px;
     font-family: 'Chakra Petch', sans-serif;
+}
+
+.instructions-image {
+    width: 100%;
 }
 
 .game {
@@ -155,7 +162,10 @@ body{
 }
 
 .back-button {
-    color: black;
+    background-color: transparent;
+    font-size: 28px;
+    border: none;
+    color: white;
 }
 
 .score-display {

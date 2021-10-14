@@ -2,13 +2,13 @@ import Game from "./game";
 
 let instructionsContent = {
     title: ["Keyboard Hero", "Controls", "Song Highway", "Keyboard", "Score"],
-    imgSrc: ["", "", "", "", ""],
+    imgSrc: ["", "keyboard.png", "songhighway.png", "pianokeys.png", "score.png"],
     text: [
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."            
+        "Keyboard Hero is a web application inspired by the guitar hero frachise. The game allows the user to use their computer's keyboard as a musical keyboard. By starting a game, you have the opportunity to play a song at its original tempo, while the game keeps track of the your score dependent on whether you play the correct node at the correct time. This web application was created for the App Academy's NYC Cohort's Javascript Project. Technologies used are HTML, CSS, JS, and a liitle helpful Tone.js. Created: Alberto Young, October 14th 2021. Song used in the app in Take on Me.",
+        "Controls for the game are the top and middle character keys on your computer's keyboard ('w through ]' and 'a through return'). The keys you need to play are displayed on the game's canvas. In addition, there is a volume control slider you can use to adjust the game's volume to your liking",
+        "The 'Song Highway' is where all the notes you need to play will be displayed, with the corresponding key character displayed on each note. As notes fall down the canvase, your goal is to press the correct key at the moment the note reaches the bottom of the canvas! Good luck and have fun!",
+        "The keyboard displayed below the Song Highway is represents a real piano keyboard! The note for each key is displayed on the keyboard's keys. When you play a note correctly, the key you played will highlight green, and when you play a note incorrectly, the key will highlight red.",
+        "Scoring in Keyboard hero is simple, play the right note at the right time, you get points. Play the wrong not at any time, you lose points! Your overall score will is displayed on the upper right corner of the game, and will highlight green when you get points, and red when you lose points."            
     ]
 }
 
@@ -99,7 +99,7 @@ class MainMenu {
             forwardButton.style.visibility = "visible";
         }
         title.innerText = instructionsContent.title[this.currInstructionsPage];
-        image.src = instructionsContent.imgSrc[this.currInstructionsPage];
+        image.src = "./src/assets/" + instructionsContent.imgSrc[this.currInstructionsPage];
         text.innerText = instructionsContent.text[this.currInstructionsPage];
     }
 

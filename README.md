@@ -1,5 +1,5 @@
 # keyboard_hero
-https://www.youngalberto.com/keyboard_hero/
+[Live Link](https://www.youngalberto.com/keyboard_hero/)
 
 Background
 

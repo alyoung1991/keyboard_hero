@@ -1,8 +1,11 @@
 class Navigation {
-    constructor(el, game){
+    constructor(el, game, songView){
         this.el = el;
         this.game = game;
+        this.songView = songView;
+        this.interval = songView.interval;
         this.setup();
+        this.setupEventListeners();
     }
 
     setup() {
@@ -57,9 +60,27 @@ class Navigation {
         body.appendChild(pauseModalContainer);
     }
 
+    setupEventListeners(){
+        let resumeButton = document.querySelector('.pause-modal-resume-button');
+        let that = this;
+        resumeButton.addEventListener('click', this.resumeGame.bind(that));
+    }
+
     handleBackButton(){
         let pauseModalContainer = document.querySelector(".pause-modal-container");
         pauseModalContainer.style.visibility = 'visible';
+
+        clearInterval(this.songView.interval);
+    }
+
+    resumeGame(){
+        let pauseModalContainer = document.querySelector(".pause-modal-container");
+
+        this.interval = setInterval(() => {
+            this.songView.step();
+            this.songView.draw();
+        }, 20);
+        pauseModalContainer.style.visibility = 'hidden';
     }
 }
 

@@ -8,9 +8,9 @@ class Game {
         this.el = el;
         this.main = document.getElementById("main");
         this.volume = this.addVolume();
-        this.navigation = this.addNavigation();
         this.score = this.addScore();
         this.songView = this.addSongView();
+        this.navigation = this.addNavigation();
         this.keyboard = new Keyboard(this.main, this.songView);
         this.keydown = null;
         this.keyup = null;
@@ -39,7 +39,7 @@ class Game {
     }
 
     addNavigation(){
-        let nav = new Navigation(this.main, this);
+        let nav = new Navigation(this.main, this, this.songView);
         return nav;
     }
     

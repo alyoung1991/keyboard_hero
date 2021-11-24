@@ -424,3 +424,52 @@ body{
         transform: translateX(120%);
     }
 }
+
+.pause-modal-container {
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    backdrop-filter: blur(7px);
+
+    .pause-modal {
+        font-family: 'Chakra Petch', sans-serif;
+        height: 200px;
+        width: 450px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+        .pause-modal-content-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .pause-modal-message {
+                font-size: 20px;
+            }
+
+            .pause-modal-buttons-container {
+                display: flex;
+                justify-content: center;
+
+                .pause-modal-main-menu-button, .pause-modal-resume-button  {
+                    height: 40px;
+                    width: 150px;
+                    margin: 20px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

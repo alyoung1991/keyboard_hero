@@ -67,7 +67,7 @@ class SongView {
         this.interval = setInterval(() => {
                 this.step();
                 this.draw();
-            }, 20);
+            }, 40);
     }
 
     step(){

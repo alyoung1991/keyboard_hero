@@ -60,6 +60,9 @@ body {
   width: 250px;
   transform: skew(-9deg) translateX(-10px);
 }
+.start-button:hover, .instructions-button:hover {
+  cursor: pointer;
+}
 
 .social-link {
   color: white;
@@ -86,7 +89,7 @@ body {
   display: none;
   padding: 20px;
   width: 500px;
-  height: 362px;
+  height: 290px;
   margin: 0 auto;
   flex-direction: column;
 }
@@ -101,6 +104,9 @@ body {
   background: transparent;
   border: none;
   color: #ffffe4;
+}
+.instructions-exit-button:hover, .instructions-left-button:hover, .instructions-right-button:hover {
+  cursor: pointer;
 }
 
 .instructions-container {
@@ -172,6 +178,9 @@ body {
   font-size: 28px;
   border: none;
   color: white;
+}
+.back-button:hover {
+  cursor: pointer;
 }
 
 .score-display {

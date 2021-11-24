@@ -4,11 +4,11 @@ let instructionsContent = {
     title: ["Keyboard Hero", "Controls", "Song Highway", "Keyboard", "Score"],
     imgSrc: ["#", "keyboard.png", "songhighway.png", "pianokeys.png", "score.png"],
     text: [
-        "Keyboard Hero is a web application inspired by the guitar hero frachise. The game allows the user to use their computer's keyboard as a musical keyboard. By starting a game, you have the opportunity to play a song at its original tempo, while the game keeps track of the your score dependent on whether you play the correct node at the correct time. This web application was created for the App Academy's NYC Cohort's Javascript Project. Technologies used are HTML, CSS, JS, and a liitle helpful Tone.js. Created: Alberto Young, October 14th 2021. Song used in the app in Take on Me.",
-        "Controls for the game are the top and middle character keys on your computer's keyboard ('w through ]' and 'a through return'). The keys you need to play are displayed on the game's canvas. In addition, there is a volume control slider you can use to adjust the game's volume to your liking",
-        "The 'Song Highway' is where all the notes you need to play will be displayed, with the corresponding key character displayed on each note. As notes fall down the canvase, your goal is to press the correct key at the moment the note reaches the bottom of the canvas! Good luck and have fun!",
-        "The keyboard displayed below the Song Highway is represents a real piano keyboard! The note for each key is displayed on the keyboard's keys. When you play a note correctly, the key you played will highlight green, and when you play a note incorrectly, the key will highlight red.",
-        "Scoring in Keyboard hero is simple, play the correct note at the correct time, you get points. Play the wrong note at any time, you lose points! Your overall score will is displayed on the upper right corner, and will highlight green when you get points, and red when you lose points."            
+        "Keyboard Hero is a web application inspired by the Guitar Hero frachise. The game allows the user to use their computer's keyboard as a musical keyboard.",
+        "Controls for the game are the top and middle character keys on your computer's keyboard ('w through ]' and 'a through return').",
+        "As notes fall down the canvas, your goal is to press the correct key at the moment the note reaches the bottom of the canvas!",
+        "When you play a note correctly, the key you played will highlight green, and when you play a note incorrectly, the key will highlight red.",
+        "Scoring in Keyboard hero is simple, play the correct note at the correct time, you get points. Play the wrong note at any time, you lose points!"            
     ]
 }
 

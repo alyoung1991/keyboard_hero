@@ -59,6 +59,10 @@ body{
     height: 50px;
     width: 250px;
     transform: skew(-9deg) translateX(-10px);
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .social-link {
@@ -86,7 +90,7 @@ body{
     display: none;
     padding: 20px;
     width: 500px;
-    height: 362px;
+    height: 290px;
     margin: 0 auto;
     flex-direction: column;
 }
@@ -101,6 +105,10 @@ body{
     background: transparent;
     border: none;
     color: $light-yellow;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .instructions-container {
@@ -173,6 +181,10 @@ body{
     font-size: 28px;
     border: none;
     color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .score-display {

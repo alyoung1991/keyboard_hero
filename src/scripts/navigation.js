@@ -3,7 +3,6 @@ class Navigation {
         this.el = el;
         this.game = game;
         this.songView = songView;
-        this.interval = songView.interval;
         this.setup();
         this.setupEventListeners();
     }
@@ -54,7 +53,7 @@ class Navigation {
 
 
         let that = this;
-        backButton.addEventListener("click", this.handleBackButton.bind(that));
+        backButton.addEventListener("click", this.pauseGame.bind(that));
         nav.appendChild(backButton);
         this.el.appendChild(nav);
         body.appendChild(pauseModalContainer);
@@ -62,11 +61,14 @@ class Navigation {
 
     setupEventListeners(){
         let resumeButton = document.querySelector('.pause-modal-resume-button');
+        let mainMenuButton = document.querySelector('.pause-modal-main-menu-button');
+
         let that = this;
         resumeButton.addEventListener('click', this.resumeGame.bind(that));
+        mainMenuButton.addEventListener('click', this.endGame.bind(that));
     }
 
-    handleBackButton(){
+    pauseGame(){
         let pauseModalContainer = document.querySelector(".pause-modal-container");
         pauseModalContainer.style.visibility = 'visible';
 
@@ -76,11 +78,18 @@ class Navigation {
     resumeGame(){
         let pauseModalContainer = document.querySelector(".pause-modal-container");
 
-        this.interval = setInterval(() => {
+        this.songView.interval = setInterval(() => {
             this.songView.step();
             this.songView.draw();
         }, 20);
         pauseModalContainer.style.visibility = 'hidden';
+    }
+
+    endGame(){
+        clearInterval(this.songView.interval);
+        let pauseModalContainer = document.querySelector(".pause-modal-container");
+        pauseModalContainer.style.visibility = 'hidden';
+        this.game.endGame();
     }
 }
 

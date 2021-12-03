@@ -13,6 +13,7 @@ class SongView {
         this.scoreObj = this.buildScoreObject();
         this.score = score;
         this.game = game;
+        this.notesPassedArray = [];
         let pianoSvg = document.createElement("img");
         pianoSvg.className = "piano-svg";
         pianoSvg.src = "./src/assets/piano.png";
@@ -83,19 +84,19 @@ class SongView {
     // clear canvas and draw newly positioned notes
     draw(){
         this.ctx.clearRect(0, 0, 600, 560);
-        let notesPassed = [];
         this.allNotes.forEach((note) => {
             note.draw(this.ctx);
             if(note.options.pos[1] > 650){
-                if(!notesPassed.includes(note)){
-                    notesPassed.push(note);
+                if(!this.notesPassedArray.includes(note) && note.options.text != ""){
+                    this.notesPassedArray.push(note);
                 }
             }
         });
-        if(notesPassed.length === this.allNotes.length){
+
+        if(this.notesPassedArray.length === 71){
             setTimeout(() => {
                 this.game.endGame();
-            }, 1000);
+            }, 5000);
         }
     }
 
